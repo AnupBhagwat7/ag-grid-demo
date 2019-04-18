@@ -1,0 +1,55 @@
+<div class="row">
+
+  <div class="col-md-6 col-md-offset-2">
+      <h1><span class="badge badge-light" id="header">Add User</span></h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" formControlName="firstName" id="fname">
+            <div *ngIf="submitted && userForm.controls.firstName.errors" class="error">
+              <div *ngIf="userForm.controls.firstName.errors.required">First name is required</div>
+            </div>
+      </div>
+
+      <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" class="form-control" formControlName="lastName" id="lname">
+          <div *ngIf="submitted && userForm.controls.lastName.errors" class="error">
+            <div *ngIf="userForm.controls.lastName.errors.required">Last name is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" formControlName="email" id="email1">
+        <div *ngIf="submitted && userForm.controls.email.errors" class="error">
+          <div *ngIf="userForm.controls.email.errors.required">Email is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="text" class="form-control" formControlName="age" id="age1">
+          <div *ngIf="submitted && userForm.controls.age.errors" class="error">
+            <div *ngIf="userForm.controls.age.errors.required">Age is required</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="mobile">Mobile:</label>
+          <input type="text" class="form-control" formControlName="mobile" id="mob">
+          <div *ngIf="submitted && userForm.controls.mobile.errors" class="error">
+            <div *ngIf="userForm.controls.mobile.errors.required">Mobile number is required</div>
+          </div>
+      </div>
+
+      <button class="btn btn-primary">Submit</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Invalid credentials.</div>
+      </div>
+    </form>
+  </div>
+
+  <a href="/users"><button class="btn btn-sm btn-success button">Back</button></a>
+</div>

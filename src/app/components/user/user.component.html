@@ -1,0 +1,18 @@
+<h2 class="header">User Details</h2>
+<a href="/addUser"><button class="btn btn-sm btn-success button">Add User</button></a>&nbsp;&nbsp;
+<button class="btn btn-sm btn-primary" (click)="editUser()">Edit User</button>&nbsp;&nbsp;
+<button class="btn btn-sm btn-danger" (click)="deleteUser()">Delete User</button>
+<br><br>
+<ag-grid-angular style="width: 100%; height: 600px;"
+    class="ag-theme-blue"
+    (gridReady)="onGridReady($event)"
+    [columnDefs]="columnDefs"
+    [rowData]="users"
+    rowSelection="single"    
+    pagination="true"
+    paginationPageSize =25
+    (selectionChanged)="onSelectionChanged($event)"
+    (cellEditingStopped)="onCellEditingStopped($event)"
+    (dataChanged)="onrowValueChanged($event)"
+    >
+</ag-grid-angular>
