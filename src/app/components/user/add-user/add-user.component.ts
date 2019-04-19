@@ -21,18 +21,13 @@ export class AddUserComponent implements OnInit {
       "age": ["", Validators.required],
       "mobile": ["", Validators.required]
     });
-    //console.log("Child Value: "+ this.route.snapshot.paramMap.get('userToBeEditedFromParent'));
-    this.route.params.subscribe(params => {
-        console.log("Child Value: ");
-        console.log( params);
-
-    });
+  
   }
 
   userForm: FormGroup;
   //firstName = new FormControl("", Validators.required);
 
-  @Input() userToBeEditedInChild: any;
+  //@Input() userToBeEditedInChild: any;
   
   constructor(private formBuilder: FormBuilder,
     private notifier: NotifierService,
