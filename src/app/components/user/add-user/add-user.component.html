@@ -6,17 +6,17 @@
       
       <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input type="text" class="form-control" formControlName="firstName" id="fname">
-            <div *ngIf="submitted && userForm.controls.firstName.errors" class="error">
-              <div *ngIf="userForm.controls.firstName.errors.required">First name is required</div>
+            <input type="text" class="form-control" formControlName="fname" id="fname">
+            <div *ngIf="submitted && userForm.controls.fname.errors" class="error">
+              <div *ngIf="userForm.controls.fname.errors.required">First name is required</div>
             </div>
       </div>
 
       <div class="form-group">
           <label for="lastName">Last Name:</label>
-          <input type="text" class="form-control" formControlName="lastName" id="lname">
-          <div *ngIf="submitted && userForm.controls.lastName.errors" class="error">
-            <div *ngIf="userForm.controls.lastName.errors.required">Last name is required</div>
+          <input type="text" class="form-control" formControlName="lname" id="lname">
+          <div *ngIf="submitted && userForm.controls.lname.errors" class="error">
+            <div *ngIf="userForm.controls.lname.errors.required">Last name is required</div>
           </div>
       </div>
 
@@ -51,5 +51,5 @@
     </form>
   </div>
 
-  <a href="/users"><button class="btn btn-sm btn-success button">Back</button></a>
+  <a routerLink="/users"><button class="btn btn-sm btn-success button">Back</button></a>
 </div>

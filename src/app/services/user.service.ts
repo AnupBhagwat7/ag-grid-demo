@@ -24,5 +24,10 @@ export class UserService {
      console.log(user);
      return this.http.post(this.apiUrl+ 'user/', user );
    }
+
+   editUser(user: User){
+    console.log(user);
+    return this.http.put(this.apiUrl+ 'user/', user );
+  }
  
 }

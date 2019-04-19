@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
 import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {first} from "rxjs/operators";
 
 @Component({
@@ -15,22 +15,31 @@ export class AddUserComponent implements OnInit {
   submitted: boolean= false;
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      "firstName": ["", Validators.required],
-      "lastName": ["", Validators.required],
+      "fname": ["", Validators.required],
+      "lname": ["", Validators.required],
       "email": ["", Validators.email],
       "age": ["", Validators.required],
       "mobile": ["", Validators.required]
+    });
+    //console.log("Child Value: "+ this.route.snapshot.paramMap.get('userToBeEditedFromParent'));
+    this.route.params.subscribe(params => {
+        console.log("Child Value: ");
+        console.log( params);
+
     });
   }
 
   userForm: FormGroup;
   //firstName = new FormControl("", Validators.required);
 
+  @Input() userToBeEditedInChild: any;
+  
   constructor(private formBuilder: FormBuilder,
     private notifier: NotifierService,
     private userService: UserService,
-    private router:Router) {
-
+    private router:Router,
+    private route: ActivatedRoute) {
+      //console.log("Child Value: "+ this.userToBeEditedInChild);
   }
 
   onSubmit() {
